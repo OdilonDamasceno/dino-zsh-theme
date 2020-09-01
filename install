@@ -1,14 +1,22 @@
 #/usr/bin/sh
 
-cp ./src/dino.zsh-theme /home/$USER/.oh-my-zsh/themes
+if [[ $(ls -a /home/$USER/ | grep -w ".oh-my-zsh") = ".oh-my-zsh" ]]; then
+  cp ./src/dino.zsh-theme /home/$USER/.oh-my-zsh/themes
 
-cp "./fonts/Noto Emoji Nerd Font Complete.ttf" "/home/$USER/.local/share/fonts"
+  if [[ $(ls -a /home/$USER/.local/share/ | grep -w "fonts") != "fonts" ]]; then 
+    mkdir /home/$USER/.local/share/fonts/
+	fi
+  
+	cp "./fonts/Noto Emoji Nerd Font Complete.ttf" "/home/$USER/.local/share/fonts"
+  
+	fc-cache
 
-fc-cache
-
-echo "##################################################################"
-echo "####              NOW CHANGE THE THEME                        ####"
-echo "####             Edit the file ~/.zshrc                       ####"
-echo "####                ZSH_THEME=\"dino\"                          ####"
-echo "####               and look the magic                         ####"
-echo "##################################################################"
+  echo "##################################################################"
+  echo "####              NOW CHANGE THE THEME                        ####"
+  echo "####             Edit the file ~/.zshrc                       ####"
+  echo "####                ZSH_THEME=\"dino\"                          ####"
+  echo "####               and look the magic                         ####"
+  echo "##################################################################"
+else
+  echo "ERROR: Please install Oh-my-zsh (https://github.com/ohmyzsh/ohmyzsh)"
+fi
