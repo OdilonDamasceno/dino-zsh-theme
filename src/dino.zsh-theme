@@ -33,5 +33,5 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY="\e[1m%{$FG[011]%}⚠%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='%B$(username) $(directory)$(current_lang)$(git_prompt_info)
+PROMPT='%B$(username) $(directory) $(current_lang)$(git_prompt_info)
 %b❯ '
