@@ -1,22 +1,27 @@
 #/usr/bin/sh
 
 if [[ $(ls -a /home/$USER/ | grep -w ".oh-my-zsh") = ".oh-my-zsh" ]]; then
-  cp ./src/dino.zsh-theme /home/$USER/.oh-my-zsh/themes
+  if [[ $OSTYPE == "linux-gnu"* ]]; then
 
-  if [[ $(ls -a /home/$USER/.local/share/ | grep -w "fonts") != "fonts" ]]; then 
-    mkdir /home/$USER/.local/share/fonts/
-	fi
-  
-	cp "./fonts/Noto Emoji Nerd Font Complete.ttf" "/home/$USER/.local/share/fonts"
-  
-	fc-cache
+	  cp ./src/dino.zsh-theme /home/$USER/.oh-my-zsh/themes
 
-  echo "##################################################################"
-  echo "####              NOW CHANGE THE THEME                        ####"
-  echo "####             Edit the file ~/.zshrc                       ####"
-  echo "####                ZSH_THEME=\"dino\"                          ####"
-  echo "####               and look the magic                         ####"
-  echo "##################################################################"
+    if [[ $(ls -a /home/$USER/.local/share/ | grep -w "fonts") != "fonts" ]]; then 
+      mkdir -p /home/$USER/.local/share/fonts/
+	  fi
+  
+  	cp "./fonts/Noto Emoji Nerd Font Complete.ttf" "/home/$USER/.local/share/fonts"
+
+	  fc-cache
+
+    echo "##################################################################"
+    echo "####              NOW CHANGE THE THEME                        ####"
+    echo "####             Edit the file ~/.zshrc                       ####"
+    echo "####                ZSH_THEME=\"dino\"                          ####"
+    echo "####               and look the magic                         ####"
+    echo "##################################################################"
+  else
+	  echo "ERROR: This theme is not supported on platforms other than linux-gnu"
+  fi
 else
   echo "ERROR: Please install Oh-my-zsh (https://github.com/ohmyzsh/ohmyzsh)"
 fi

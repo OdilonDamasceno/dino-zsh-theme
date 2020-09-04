@@ -8,9 +8,17 @@
 
 ### Prerequisites
 
+- OS: Linux-GNU
+
 - [Oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) should be installed
 
 ### Installation
+
+Clone this repository
+
+```bash
+git clone https://github.com/OdilonDamasceno/dino-zsh-theme.git
+```
 
 Run the install script
 
@@ -39,6 +47,7 @@ ZSH_THEME="dino"
 
 - Java
 
+- Rust
 
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
