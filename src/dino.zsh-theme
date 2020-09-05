@@ -7,7 +7,7 @@ directory() {
 }
 
 current_lang() {
-  if [[ %~% == $HOME ]]; then
+  if [[ $(pwd) != $HOME ]]; then
 	  if [[ "$(ls | grep -w node_modules)" = "node_modules" ]] || [[ $(ls | grep "\.js" ) =~ ".js" ]]; then
 	    echo "\e[1m%{$FG[010]%}%{$reset_color%}"
     elif [[ "$(ls | grep -w pubspec.yaml)" = "pubspec.yaml" ]] || [[ $(ls | grep "\.dart" ) =~ ".dart" ]]; then
